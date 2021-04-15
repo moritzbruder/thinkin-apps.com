@@ -1,7 +1,15 @@
 <html>
 <head>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Poppins:wght@100;200;300;400;500&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link href="index.css" rel="stylesheet">
+
+    <!-- Meta -->
     <title>Moritz Bruder (thinkin-apps.com)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- screenshot lightbox -->
     <script>
@@ -54,22 +62,31 @@
             bingoChip.innerHTML = buzzwords[buzzPos].title;
         }
     </script>
+
+    <script>
+        function fillEmail () {
+            const email = atob("bV5vXnJeaV50XnpeLl5iXnJedV5kXmVecl5AXnReaF5pXm5ea15pXm5eLV5hXnBecF5zXi5eY15vXm0=").replace(/\^/g,"");
+            const link = document.getElementById("email-link");
+            link.setAttribute('href', 'mailto:' + email);
+            link.innerHTML = email;
+        }
+    </script>
 </head>
-<body>
+<body onload="fillEmail()">
 <div id="hero-header">
     <img id="ta-logo" src="res/logo_transparent.png">
-    <div id="hero-content" class="hlist">
+    <div id="hero-content" class="hlist flexwrap">
         <img id="portrait" src="res/portait.png" />
         <div id="hero-description" class="vlist-left">
-            <h1>Hi, I'm Moritz.</h1>
-            <h2>I made this page to show off the stuff I’ve built. Please check out my LinkedIn profile for my work experience:</h2>
+            <h1>Hi, Moritz here &#128075;</h1>
+            <h2>I made this page to show off the things I’ve built. Please check out my LinkedIn profile for my work experience:</h2>
             <a class="hero-link hover-link" href="https://linkedin.com/in/moritzbruder">
                 <div class="hlist">
                     <img src="res/icons/linkedin.png" class="icon">
                     linkedin.com/in/moritzbruder
                 </div>
             </a>
-            <div id="hero-bingo-container" class="vlist-left">
+            <div style="visibility: hidden;" id="hero-bingo-container" class="vlist-left">
                 <p>or click the die if you want to play some buzzword bingo instead:</p>
                 <div class="hlist">
                     <img id="bingo-die" onclick="nextBuzzword()" src="res/icons/random.png">
@@ -91,27 +108,27 @@
 </div>
 <div id="project-lumina" class="project vlist">
     <div class="vlist project-content">
-        <div class="hlist-top">
+        <div class="hlist-top flexwrap">
             <img class="project-logo" src="res/logo/lumina.png" />
-            <div class="vlist-left">
-                <div class="hlist">
+            <div class="vlist-left project-description">
+                <div class="hlist flexwrap">
                     <h2>Lumina</h2>
                     <span class="release-hint">Released August 2020</span>
                 </div>
                 <p>Designed and built a social network to bring friends closer together using micro-events. Featuring native frontends on android and iOS and a custom backend hosted in the cloud.</p>
-                <div class="hlist">
-                    <a href="https://apps.apple.com/app/id1509000572"><span class="hlist"><img class="link-icon" src="res/icons/link.png" />AppStore</span></a>
-                    <a href="https://play.google.com/store/apps/details?id=com.lumina.lumina"><span class="hlist"><img class="link-icon" src="res/icons/link.png" />Play Store</span></a>
-                    <a href="https://lumina-app.com/"><span class="hlist"><img class="link-icon" src="res/icons/link.png" />Website</span></a>
+                <div class="hlist flexwrap">
+                    <a class="project-link hover-link" href="https://apps.apple.com/app/id1509000572"><span class="hlist"><img class="link-icon" src="res/icons/link.png" />AppStore</span></a>
+                    <a class="project-link hover-link" href="https://play.google.com/store/apps/details?id=com.lumina.lumina"><span class="hlist"><img class="link-icon" src="res/icons/link.png" />Play Store</span></a>
+                    <a class="project-link hover-link" href="https://lumina-app.com/"><span class="hlist"><img class="link-icon" src="res/icons/link.png" />Website</span></a>
                 </div>
-                <table class="project-table">
-                    <tr>
-                        <td class="header"><div class="hlist"><img src="res/icons/results.png" style="width: 20pt;" />&nbsp;Results:</div></td>
-                        <td>Signed up <b>500 users</b> in the first 3 months before pausing the project due to COVID-19. Over 300 “Leuchtsignal”s created to date.</td>
-                    </tr>
-                    <tr>
-                        <td class="header"><div class="hlist"><img src="res/icons/technologies.png" style="width: 20pt;" />&nbsp;Technologies:</div></td>
-                        <td class="tech-bubble-container">
+                <div class="vlist project-table">
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/results.png" style="width: 20pt;" />&nbsp;Results:</div></div>
+                        <span class="cell-content">Signed up <b>500 users</b> in the first 3 months before pausing the project due to COVID-19. Over 300 “Leuchtsignal”s created to date.</span>
+                    </div>
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/technologies.png" style="width: 20pt;" />&nbsp;Technologies:</div></div>
+                        <div class="tech-bubble-container cell-content">
                             <span class="highlight">Native iOS App (Swift)</span>
                             <span class="highlight">Native Android App (Kotlin)</span>
                             <span class="highlight">Ktor-based Backend (Kotlin)</span>
@@ -125,33 +142,37 @@
                             <span>Firebase Analytics</span>
                             <span>Photon Geocoder</span>
                             <span>AWS DynamoDB</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div class="hlist"><img src="res/icons/screenshots.png" style="width: 20pt;" />&nbsp;Screenshots:</div></td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/screenshots.png" style="width: 20pt;" />&nbsp;Screenshots:</div></div>
+                        <div class="cell-content"></div>
+                    </div>
+                </div>
 
-                <div class="hlist">
-                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/lumina-1.png" class="screenshot mobile" /></div>
-                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/lumina-2.png" class="screenshot mobile" /></div>
-                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/lumina-3.png" class="screenshot mobile" /></div>
-                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/lumina-4.png" class="screenshot mobile" /></div>
+                <div class="hlist flexwrap">
+                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/lumina-1.png" class="screenshot mobile-tall" /></div>
+                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/lumina-2.png" class="screenshot mobile-tall" /></div>
+                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/lumina-3.png" class="screenshot mobile-tall" /></div>
+                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/lumina-4.png" class="screenshot mobile-tall" /></div>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
-<div id="project-ba" class="project vlist">
+
+
+
+<!--<div id="project-ba" class="project vlist">
     <div class="vlist project-content">
-        <div class="hlist-top">
+        <div class="hlist-top flexwrap">
             <div class="vlist-left">
                 <div class="hlist">
                     <h2>bruder-architekten.de</h2>
                     <span class="release-hint">Released Fall 2019</span>
                 </div>
-                <p>Designed and built a website for my father’s architecture studio. The site combines two companies and is built based on a JSON file for easy content management.</p>
+                <p>A website for my father’s architecture studio. The site I designed and built represents two companies and is generated based on a JSON file for easy content management.</p>
                 <div class="hlist">
                     <a href="https://bruder-architekten.de/"><span class="hlist"><img class="link-icon" src="res/icons/link-white.png" />Website</span></a>
                 </div>
@@ -177,81 +198,124 @@
             </div>
         </div>
     </div>
-</div>
-<div id="project-hourz" class="project vlist">
+</div>-->
+<div id="project-ba" class="project vlist">
     <div class="vlist project-content">
-        <div class="hlist-top">
-            <img class="project-logo" src="res/logo/hourz.png" />
-            <div class="vlist-left">
-                <div class="hlist">
-                    <h2>Hourz</h2>
-                    <span class="release-hint">Released April 2016</span>
+        <div class="hlist-top flexwrap">
+            <div class="vlist-left project-description">
+                <div class="hlist flexwrap">
+                    <h2>bruder-architekten.de</h2>
+                    <span class="release-hint">Released Fall 2019</span>
                 </div>
-                <p>A simple android app for tracking working time by the hour for multiple jobs. Supports tracking of specific tasks to generate PDF invoices or Excel exports and sports a simple set of location-based rules for automated tracking. Originally released in 2015 under a different name.</p>
-
-                <div class="hlist">
-                    <a href="https://play.google.com/store/apps/details?id=com.lumina.lumina"><span class="hlist"><img class="link-icon" src="res/icons/link-hourz.png" />Play Store</span></a>
-                    <a href="https://hourz.app/"><span class="hlist"><img class="link-icon" src="res/icons/link-hourz.png" />Website</span></a>
+                <p>A website for my father’s architecture studio. The site I designed and built represents two companies and is generated based on a JSON file for easy content management.</p>
+                <div class="hlist flexwrap">
+                    <a class="project-link hover-link" href="https://bruder-architekten.de/"><span class="hlist"><img class="link-icon" src="res/icons/link-white.png" />Website</span></a>
                 </div>
-                <table class="project-table">
-                    <tr>
-                        <td class="header"><div class="hlist"><img src="res/icons/results.png" style="width: 20pt;" />&nbsp;Results:</div></td>
-                        <td>Over <b>2000 organic downloads</b> with a 4.5 star rating in Google Play.</td>
-                    </tr>
-                    <tr>
-                        <td class="header"><div class="hlist"><img src="res/icons/technologies.png" style="width: 20pt;" />&nbsp;Technologies:</div></td>
-                        <td class="tech-bubble-container">
-                            <span class="highlight">Native Android App (Java)</span>
-                            <span>Firebase Analytics & Crashlytics</span>
-                            <span>Couchbase NoSQL</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div class="hlist"><img src="res/icons/screenshots.png" style="width: 20pt;" />&nbsp;Screenshots:</div></td>
-                    </tr>
-                </table>
+                <div class="vlist project-table">
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/technologies-white.png" style="width: 20pt;" />&nbsp;Technologies:</div></div>
+                        <div class="tech-bubble-container cell-content">
+                            <span class="highlight">Angular</span>
+                            <span>Firebase Hosting</span>
+                        </div>
+                    </div>
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/screenshots-white.png" style="width: 20pt;" />&nbsp;Screenshots:</div></div>
+                        <div class="cell-content"></div>
+                    </div>
+                </div>
 
-                <div class="hlist">
-                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/hourz-1.png" class="screenshot mobile" /></div>
-                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/hourz-2.png" class="screenshot mobile" /></div>
-                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/hourz-3.png" class="screenshot mobile" /></div>
-                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/hourz-4.png" class="screenshot mobile" /></div>
+                <div class="hlist flexwrap">
+                    <div class="screenshot-container desktop"><img onclick="imgFocus(this)" src="res/screenshot/ba-1.png" class="screenshot desktop" /></div>
+                    <div class="screenshot-container desktop"><img onclick="imgFocus(this)" src="res/screenshot/ba-2.png" class="screenshot desktop" /></div>
+                    <div class="screenshot-container desktop"><img onclick="imgFocus(this)" src="res/screenshot/ba-3.png" class="screenshot desktop" /></div>
+                    <div class="screenshot-container desktop"><img onclick="imgFocus(this)" src="res/screenshot/ba-4.png" class="screenshot desktop" /></div>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+<div id="project-hourz" class="project vlist">
+    <div class="vlist project-content">
+        <div class="hlist-top flexwrap">
+            <img class="project-logo" src="res/logo/hourz.png" />
+            <div class="vlist-left project-description">
+                <div class="hlist flexwrap">
+                    <h2>Hourz</h2>
+                    <span class="release-hint">Released April 2016</span>
+                </div>
+                <p>A simple android app for tracking working time by the hour for multiple jobs. Supports tracking of specific tasks to generate PDF invoices or Excel exports and sports a simple set of location-based rules for automated tracking. Originally released in 2015 under a different name.</p>
+                <div class="hlist flexwrap">
+                    <a class="project-link hover-link" href="https://play.google.com/store/apps/details?id=de.thinkinapps.jobz"><span class="hlist"><img class="link-icon" src="res/icons/link-hourz.png" />Play Store</span></a>
+                    <a class="project-link hover-link" href="https://hourz.app/"><span class="hlist"><img class="link-icon" src="res/icons/link-hourz.png" />Website</span></a>
+                </div>
+                <div class="vlist project-table">
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/results.png" style="width: 20pt;" />&nbsp;Results:</div></div>
+                        <span class="cell-content">Over <b>2000 organic downloads</b> with a 4.5 star rating in Google Play.</span>
+                    </div>
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/technologies.png" style="width: 20pt;" />&nbsp;Technologies:</div></div>
+                        <div class="tech-bubble-container cell-content">
+                            <span class="highlight">Native Android App (Java)</span>
+                            <span>Firebase Analytics & Crashlytics</span>
+                            <span>Couchbase NoSQL</span>
+                        </div>
+                    </div>
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/screenshots.png" style="width: 20pt;" />&nbsp;Screenshots:</div></div>
+                        <div class="cell-content"></div>
+                    </div>
+                </div>
+
+                <div class="hlist flexwrap">
+                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/hourz-1.png" class="screenshot mobile-tall" /></div>
+                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/hourz-2.png" class="screenshot mobile-tall" /></div>
+                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/hourz-3.png" class="screenshot mobile-tall" /></div>
+                    <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/hourz-4.png" class="screenshot mobile-tall" /></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div id="project-woehler" class="project vlist">
     <div class="vlist project-content">
-        <div class="hlist-top">
+        <div class="hlist-top flexwrap">
             <img class="project-logo" src="res/logo/woehler.png" />
-            <div class="vlist-left">
-                <div class="hlist">
-                    <h2>Wöhlerschule</h2>
+            <div class="vlist-left project-description">
+                <div class="hlist flexwrap">
+                    <h2>W&ouml;hlerschule</h2>
                     <span class="release-hint">Released Summer 2013</span>
                 </div>
                 <p>Customizable substitution plan browser and school planner I built for my highschool. Comes in the form of an android app that’s backed by a custom PHP web crawler with a MySQL database that sends substitution plan updates via Google Cloud Messaging.</p>
-
-                <div class="hlist">
-                    <a href="https://play.google.com/store/apps/details?id=com.lumina.lumina"><span class="hlist"><img class="link-icon" src="res/icons/link-woehler.png" />Play Store</span></a>
+                <div class="hlist flexwrap">
+                    <a class="project-link hover-link" href="https://play.google.com/store/apps/details?id=com.woehler.woehler"><span class="hlist"><img class="link-icon" src="res/icons/link-woehler.png" />Play Store</span></a>
                 </div>
-                <table class="project-table">
-                    <tr>
-                        <td class="header"><div class="hlist"><img src="res/icons/technologies.png" style="width: 20pt;" />&nbsp;Technologies:</div></td>
-                        <td class="tech-bubble-container">
+                <div class="vlist project-table">
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/technologies.png" style="width: 20pt;" />&nbsp;Technologies:</div></div>
+                        <div class="tech-bubble-container cell-content">
                             <span class="highlight">Native Android App (Java)</span>
                             <span>PHP</span>
                             <span>MySQL</span>
                             <span>Google Cloud Messaging</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div class="hlist"><img src="res/icons/screenshots.png" style="width: 20pt;" />&nbsp;Screenshots:</div></td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                    <div class="hlist-top flexwrap row">
+                        <div class="header"><div class="hlist"><img src="res/icons/screenshots.png" style="width: 20pt;" />&nbsp;Screenshots:</div></div>
+                    </div>
+                </div>
 
-                <div class="hlist">
+                <div class="hlist flexwrap">
                     <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/woehler-1.png" class="screenshot mobile" /></div>
                     <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/woehler-2.png" class="screenshot mobile" /></div>
                     <div class="screenshot-container"><img onclick="imgFocus(this)" src="res/screenshot/woehler-3.png" class="screenshot mobile" /></div>
@@ -262,9 +326,18 @@
         </div>
     </div>
 </div>
+
+
 <div id="hero-footer">
-    <h1>That's it.</h1>
-    <div><U><a href="/imprint">Imprint</a></U></div>
+    <div id="footer-content" class="vlist">
+        <h1>That's it.</h1>
+        <br />
+        <center>
+            <p>Thanks for checking out my projects, you can reach me at:</p>
+            <a id="email-link"><!-- dynamic content (no spam pls) --></a>
+        </center>
+    </div>
+    <div id="imprint-link"><a href="/imprint">Imprint</a></div>
 </div>
 <div onclick="clearFocus()" id="screenshot-backdrop"></div>
 </body>

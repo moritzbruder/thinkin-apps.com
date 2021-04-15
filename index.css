@@ -8,9 +8,9 @@ body {
 }
 
 h1 {
-    font-weight: lighter;
-    font-size: 42pt;
-    line-height: 42pt;
+    font-weight: 300;
+    font-size: 36pt;
+    line-height: 36pt;
     margin: 0;
     padding: 0;
 }
@@ -30,12 +30,11 @@ a {
 
 #hero-header {
     background: #121924;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     color: white;
 }
 
@@ -49,11 +48,35 @@ a {
     justify-content: center;
     color: white;
     margin-top: 20vh;
+    position: relative;
+}
+
+#footer-content {
+    max-width: 240pt;
+}
+
+#imprint-link {
+    position: absolute;
+    bottom: 24pt;
+}
+
+#imprint-link a {
+    opacity: 0.65;
+    color: #fff;
+    font-weight: 300;
+    transition: all .2s ease-in-out;
+}
+
+#imprint-link a:hover {
+    opacity: initial;
+    color: #fff;
+    text-decoration: underline;
 }
 
 #ta-logo {
     width: 200pt;
     margin-top: 20pt;
+    margin-bottom: 16pt;
 }
 
 #hero-scroll-hint {
@@ -61,18 +84,26 @@ a {
     flex-direction: row;
     align-items: center;
     margin-bottom: 24pt;
+    margin-top: 16pt;
     cursor: pointer;
     color: white;
     font-weight: normal;
 }
 
 #hero-description {
-    margin-left: 94pt;
     max-width: 300pt;
+    margin: 16pt 48pt;
+}
+
+#hero-content {
+    margin: -16pt -12pt;
+    
 }
 
 #portrait {
     height: 440pt;
+    max-height: 70vh;
+    margin:  16pt 48pt;
 }
 
 .hero-link {
@@ -102,6 +133,10 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.flexwrap {
+    flex-wrap: wrap;
 }
 
 .icon {
@@ -187,18 +222,25 @@ a {
 
 .project {
     margin: 0;
-    padding: 84pt;
+    padding: 96pt 12pt;
 }
 
 .project-content {
-    max-width: 700pt;
-    font-size: 16pt;
+    max-width: 750pt;
+    font-size: 14pt;
 }
 
 .project-logo {
     width: 120pt;
     height: 120pt;
-    margin-right: 36pt;
+    margin-left: 16pt;
+    margin-right: 16pt;
+}
+
+.project-description {
+    max-width: 550pt;
+    margin-left: 16pt;
+    margin-right: 16pt;
 }
 
 .project h2 {
@@ -223,6 +265,8 @@ a {
     margin-right: 8pt;
     margin-bottom: 6pt;
     border-radius: 9999px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #project-lumina .tech-bubble-container span {
@@ -263,11 +307,19 @@ a {
     cursor: default;
 }
 
-.screenshot.mobile {
+.screenshot.mobile-tall {
     width: 120pt;
     height: 240pt;
     top: calc(50vh - 120pt);
     left: calc(50vw - 60pt);
+}
+
+.screenshot.mobile {
+    width: 120pt;
+    height: 215pt;
+    top: calc(50vh - 120pt);
+    left: calc(50vw - 60pt);
+    border-radius: 6pt;
 }
 
 .screenshot.desktop {
@@ -275,6 +327,10 @@ a {
     height: 140pt;
     top: calc(50vh - 70pt);
     left: calc(50vw - 100pt);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
 }
 
 #screenshot-backdrop {
@@ -309,34 +365,64 @@ a {
     margin-top: 24pt;
 }
 
-.screenshot.mobile.focus {
+.screenshot.focus {
+    transition: all .4s ease-in-out, object-position 1.5s ease-in-out;
+    z-index: 100;
     position: fixed;
+}
+
+.screenshot.mobile.focus {
+    top: calc(50vh - 215pt);
+    left: calc(50vw - 120pt);
+    width: 240pt;
+    height: 430pt;
+}
+
+.screenshot.mobile-tall.focus {
     top: calc(50vh - 240pt);
     left: calc(50vw - 120pt);
     width: 240pt;
     height: 480pt;
-    z-index: 100;
-    transition: all .4s ease-in-out, object-position 1.5s ease-in-out;
+}
+
+.screenshot.desktop.focus {
+    top: calc(50vh - 140pt);
+    left: calc(50vw - 200pt);
+    width: 400pt;
+    height: 280pt;
 }
 
 .project-table {
     margin-top: 16pt;
-}
-
-.project-table td {
-    vertical-align: top;
-    padding-top: 12pt;
+    width: 100%;
 }
 
 .project-table .header {
-    padding-right: 16pt;
+    width: 140pt;
+    margin-top: 8pt;
+}
+
+.project-table .row {
+    padding-top: 6pt;
+    justify-content: start;
+    width: 100%;
+}
+
+.project-table .cell-content {
+    max-width: 410pt;
+    width: 100%;
+    margin-top: 8pt;
+}
+
+.project-link {
+    margin: 8pt;
 }
 
 /* Lumina Specific */
 #project-lumina {
     color: black;
     background: #FFE300;
-    font-family: "Jost*";
+    font-family: "Jost";
 }
 
 #project-lumina a {
@@ -349,6 +435,7 @@ a {
     color: black;
     background: white;
     font-family: "Roboto";
+    font-weight: 300;
 }
 
 #project-hourz a {
@@ -372,6 +459,7 @@ a {
     color: black;
     background: white;
     font-family: "Roboto";
+    font-weight: 300;
 }
 
 #project-woehler a {
@@ -394,7 +482,11 @@ a {
 #project-ba {
     color: white;
     background: #ACB5A7;
-    font-family: "Century Gothic";
+    font-family: "Century Gothic", "Poppins", "sans-serif";
+}
+
+#project-ba .project-content {
+    width: calc(100vw - 48pt);
 }
 
 #project-ba a {
@@ -410,5 +502,9 @@ a {
 #project-ba .tech-bubble-container .highlight {
     background: white;
     color: #ACB5A7;
+}
+
+#project-ba .project-table {
+    color: #fff;
 }
 
