@@ -1,10 +1,12 @@
 html {
     scroll-behavior: smooth;
+    margin: 0;
 }
 
 body {
     margin: 0;
-    font-family: Poppins;
+    font-family: "Poppins";
+    width: 100vw;
 }
 
 h1 {
@@ -36,6 +38,7 @@ a {
     flex-direction: column;
     align-items: center;
     color: white;
+    justify-content: space-between;
 }
 
 #hero-footer {
@@ -91,24 +94,33 @@ a {
 }
 
 #hero-description {
-    max-width: 300pt;
-    margin: 16pt 48pt;
+    width: 400pt;
+    max-width: 100vw;
+    padding: 16pt 48pt;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #hero-content {
-    margin: -16pt -12pt;
-    
+    /*margin: -16pt -12pt;*/
 }
 
 #portrait {
+    width: 240pt;
+    max-width: calc(100vw - 96pt);
+    box-sizing: border-box;
     height: 440pt;
     max-height: 70vh;
     margin:  16pt 48pt;
+    object-fit: cover;
+    border-radius: 8pt;
 }
 
 .hero-link {
     margin-left: -16pt;
-    font-size: 16pt;
+    font-size: min(4vw, 16pt);
 }
 
 .hlist {
