@@ -65,6 +65,23 @@
         }
     </script>
 
+    <!-- 3d logo -->
+    <script>
+        var videoElement;
+        function shiftLogo(event) {
+            if (!videoElement) {
+                videoElement = document.getElementById("ta-logo")
+            }
+            let pointerX = event.pageX;
+            const width  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            let progress = pointerX / width;
+
+            videoElement.currentTime = videoElement.duration * progress;
+
+        }
+
+    </script>
+
     <script>
         function fillEmail () {
             const email = atob("bV5vXnJeaV50XnpeQF50XmheaV5uXmteaV5uXi1eYV5wXnBec14uXmNeb15t").replace(/\^/g,"");
@@ -74,9 +91,11 @@
         }
     </script>
 </head>
-<body onload="fillEmail()">
+<body onload="fillEmail()" onmousemove="shiftLogo(event)">
 <div id="hero-header">
-    <img id="ta-logo" src="res/logo_transparent.png">
+    <video id="ta-logo">
+        <source src="res/logo.mp4" type="video/mp4">
+    </video>
     <div id="hero-content" class="hlist flexwrap">
         <img id="portrait" src="res/portrait.jpg" />
         <div id="hero-description" class="vlist-left">
